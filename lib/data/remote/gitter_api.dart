@@ -1,7 +1,5 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
-import 'package:fhack/data/model/message.dart';
+import 'package:fhack/data/model/gitter_message.dart';
 import 'package:fhack/util/config.dart';
 
 class GitterAPI {
@@ -20,10 +18,10 @@ class GitterAPI {
   static const String MESSAGE_ENDPOINT =
       GITTER_BASE_URL + "rooms/" + ROOM_ID + "/chatMessages?limit=50";
 
-  Future<List<Message>> getMessages() {
+  Future<List<GitterMessage>> getMessages() {
     return _dio.get(MESSAGE_ENDPOINT, options: _options).then((Response res) {
-      return (res.data as List).map((i) {
-        return Message.fromJson(i);
+      return (res.data as List).map((item) {
+        return GitterMessage.fromJson(item);
       }).toList();
     }).catchError((err) {
       print(err.toString());
