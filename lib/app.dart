@@ -1,4 +1,4 @@
-import 'package:fhack/screen/home/home_screen.dart';
+import 'package:Fluttery/screen/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -6,7 +6,8 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'FHACK',
+      title: 'Fluttery',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

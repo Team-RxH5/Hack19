@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:fhack/data/model/youtube_video.dart';
-import 'package:fhack/util/config.dart';
+import 'package:Fluttery/data/model/youtube_video.dart';
+import 'package:Fluttery/util/config.dart';
 
 class YoutubeAPI {
   Dio _dio;

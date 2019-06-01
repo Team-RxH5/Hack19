@@ -1,4 +1,4 @@
-import 'package:fhack/data/model/stack_question.dart';
+import 'package:Fluttery/data/model/stack_question.dart';
 import 'package:flutter/material.dart';
 import 'qa_web_view.dart';
 

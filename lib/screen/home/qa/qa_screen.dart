@@ -1,8 +1,8 @@
-import 'package:fhack/screen/common/header.dart';
-import 'package:fhack/screen/common/loader.dart';
+import 'package:Fluttery/screen/common/header.dart';
+import 'package:Fluttery/screen/common/loader.dart';
 import 'package:flutter/material.dart';
-import 'package:fhack/data/remote/stackoverflow_api.dart';
-import 'package:fhack/data/model/stack_question.dart';
+import 'package:Fluttery/data/remote/stackoverflow_api.dart';
+import 'package:Fluttery/data/model/stack_question.dart';
 import 'qa_list_tile.dart';
 
 class QAScreen extends StatelessWidget {

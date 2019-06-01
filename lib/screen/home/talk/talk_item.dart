@@ -1,4 +1,4 @@
-import 'package:fhack/data/model/gitter_message.dart';
+import 'package:Fluttery/data/model/gitter_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:markdown/markdown.dart' as Markdown;

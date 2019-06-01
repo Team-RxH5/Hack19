@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:fhack/data/model/stack_question.dart';
-import 'package:fhack/util/config.dart';
+import 'package:Fluttery/data/model/stack_question.dart';
+import 'package:Fluttery/util/config.dart';
 
 class StackOverFlowAPI {
   Dio _dio;

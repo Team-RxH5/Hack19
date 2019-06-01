@@ -1,6 +1,6 @@
-import 'package:fhack/screen/home/news/video_screen.dart';
-import 'package:fhack/screen/home/qa/qa_screen.dart';
-import 'package:fhack/screen/home/talk/talk_screen.dart';
+import 'package:Fluttery/screen/home/news/video_screen.dart';
+import 'package:Fluttery/screen/home/qa/qa_screen.dart';
+import 'package:Fluttery/screen/home/talk/talk_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {

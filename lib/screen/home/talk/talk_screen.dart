@@ -1,8 +1,8 @@
-import 'package:fhack/data/model/gitter_message.dart';
-import 'package:fhack/data/remote/gitter_api.dart';
-import 'package:fhack/screen/common/header.dart';
-import 'package:fhack/screen/common/loader.dart';
-import 'package:fhack/screen/home/talk/talk_item.dart';
+import 'package:Fluttery/data/model/gitter_message.dart';
+import 'package:Fluttery/data/remote/gitter_api.dart';
+import 'package:Fluttery/screen/common/header.dart';
+import 'package:Fluttery/screen/common/loader.dart';
+import 'package:Fluttery/screen/home/talk/talk_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
