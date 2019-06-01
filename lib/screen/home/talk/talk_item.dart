@@ -2,7 +2,6 @@ import 'package:fhack/data/model/gitter_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:markdown/markdown.dart' as Markdown;
-import 'package:cached_network_image/cached_network_image.dart';
 
 class TalkItem extends StatelessWidget {
   final GitterMessage message;
@@ -15,7 +14,7 @@ class TalkItem extends StatelessWidget {
       children: <Widget>[
         ListTile(
           leading: CircleAvatar(
-//            backgroundImage: CachedNetworkImageProvider(message.user.avatorUrlMedium),
+          child: Text(message.user.displayName[0]),
           ),
           title: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -26,7 +25,7 @@ class TalkItem extends StatelessWidget {
               ),
               Spacer(),
               Text(
-                message.sent.toIso8601String(),
+                '${message.sent.year}-${message.sent.month}-${message.sent.day} ${message.sent.hour}:${message.sent.minute}:${message.sent.second}',
                 style: TextStyle(color: Colors.grey, fontSize: 12),
               ),
             ],
