@@ -46,34 +46,36 @@ class TalkScreenState extends State<TalkScreen> {
     );
   }
   _signinButton(){
-    return ButtonTheme(
-      height: 50.0,
-      minWidth: 200.0,
-      buttonColor: Colors.blue,
-      child: Center(
-        child: RaisedButton(
-          onPressed: _buildTextComposer,
-          child: Row(
-            children: <Widget>[
-              Column(
-                children: <Widget>[
-                  Text(
-                    'Login with Gitter',
-                    style: TextStyle(
-                      fontSize: 20.0
+    return InkWell(
+      child: ButtonTheme(
+        height: 50.0,
+        minWidth: 200.0,
+        buttonColor: Colors.blue,
+        child: Center(
+          child: RaisedButton(
+            onPressed: _buildTextComposer,
+            child: Row(
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Text(
+                      'Login with Gitter',
+                      style: TextStyle(
+                        fontSize: 20.0
+                      ),
                     ),
-                  ),
-                  Text('Description'),
-                ],
-              ),
-              Icon(
-                Icons.input,
-                size: 30.0,
-              )
-            ],
-          ),
-        )
-      ),
+                    Text('Description'),
+                  ],
+                ),
+                Icon(
+                  Icons.input,
+                  size: 30.0,
+                )
+              ],
+            ),
+          )
+        ),
+      )
     );
   }
   Widget _buildTextComposer(){
