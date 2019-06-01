@@ -5,7 +5,7 @@ import 'package:fhack/screen/common/loader.dart';
 import 'package:fhack/screen/home/news/video_item.dart';
 import 'package:flutter/material.dart';
 
-class NewsScreen extends StatelessWidget {
+class VideoScreen extends StatelessWidget {
   final YoutubeAPI _api = YoutubeAPI();
 
   @override
@@ -13,7 +13,7 @@ class NewsScreen extends StatelessWidget {
     return Scaffold(
       body: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-          return <Widget>[Header("News")];
+          return <Widget>[Header("Video")];
         },
         body: ListView(
           children: <Widget>[
