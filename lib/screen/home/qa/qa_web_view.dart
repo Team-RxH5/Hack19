@@ -13,7 +13,7 @@ class QAWebViewScreen extends StatelessWidget {
     return WebviewScaffold(
       url: question.link,
       appBar: AppBar(
-        title: Text("Test"),
+        title: Text("Question"),
       ),
     );
   }
