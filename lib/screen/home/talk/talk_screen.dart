@@ -1,9 +1,10 @@
-import 'package:fhack/data/model/message.dart';
+import 'package:fhack/data/model/gitter_message.dart';
 import 'package:fhack/data/remote/gitter_api.dart';
+import 'package:fhack/screen/home/talk/talk_item.dart';
 import 'package:flutter/material.dart';
 
 class TalkScreen extends StatelessWidget {
-  GitterAPI _api = GitterAPI();
+  final GitterAPI _api = GitterAPI();
 
   @override
   Widget build(BuildContext context) {
@@ -12,14 +13,12 @@ class TalkScreen extends StatelessWidget {
         Text("Talk"),
         FutureBuilder(
           future: _api.getMessages(),
-          builder:
-              (BuildContext context, AsyncSnapshot<List<Message>> snapshot) {
+          builder: (BuildContext context,
+              AsyncSnapshot<List<GitterMessage>> snapshot) {
             if (snapshot.hasData) {
               return Column(
                 children: snapshot.data
-                    .map((Message message) => ListTile(
-                          title: Text(message.text),
-                        ))
+                    .map((GitterMessage message) => TalkItem(message: message))
                     .toList(),
               );
             } else {
