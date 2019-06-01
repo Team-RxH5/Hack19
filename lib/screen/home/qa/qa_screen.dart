@@ -1,4 +1,5 @@
 import 'package:fhack/screen/common/header.dart';
+import 'package:fhack/screen/common/loader.dart';
 import 'package:flutter/material.dart';
 import 'package:fhack/data/remote/stackoverflow_api.dart';
 import 'package:fhack/data/model/stack_question.dart';
@@ -22,7 +23,7 @@ class QAScreen extends StatelessWidget {
                   AsyncSnapshot<List<Question>> snapshot) {
                 switch (snapshot.connectionState) {
                   case ConnectionState.waiting:
-                    return Text('Loading...');
+                    return Loader(true);
                   default:
                     if (snapshot.hasData) {
                       return Column(
