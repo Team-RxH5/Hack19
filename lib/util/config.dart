@@ -1,1 +1,2 @@
 const String GITTER_BASE_URL = "https://api.gitter.im/v1/";
+const String STACKOVERFLOW_QUESTION_URL = "https://api.stackexchange.com/2.2/questions?order=desc&sort=activity&tagged=flutter&site=stackoverflow";
