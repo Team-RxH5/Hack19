@@ -13,23 +13,28 @@ class TalkItem extends StatelessWidget {
     return Column(
       children: <Widget>[
         ListTile(
+          leading: CircleAvatar(
+          child: Text(message.user.displayName[0]),
+          ),
           title: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Text(
                 message.user.displayName,
-                style: TextStyle(color: Colors.blueAccent, fontSize: 14),
+                style: Theme.of(context).textTheme.title,
               ),
               Spacer(),
               Text(
-                message.sent.toIso8601String(),
+                '${message.sent.year}-${message.sent.month}-${message.sent.day} ${message.sent.hour}:${message.sent.minute}:${message.sent.second}',
                 style: TextStyle(color: Colors.grey, fontSize: 12),
               ),
             ],
           ),
           subtitle: Padding(
             padding: const EdgeInsets.only(top: 4.0),
-            child: Html(data: Markdown.markdownToHtml(message.text),),
+            child: Html(
+              data: Markdown.markdownToHtml(message.text),
+            ),
           ),
         ),
         Divider(
