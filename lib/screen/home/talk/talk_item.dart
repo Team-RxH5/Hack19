@@ -1,5 +1,7 @@
 import 'package:fhack/data/model/gitter_message.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
+import 'package:markdown/markdown.dart' as Markdown;
 
 class TalkItem extends StatelessWidget {
   final GitterMessage message;
@@ -27,7 +29,7 @@ class TalkItem extends StatelessWidget {
           ),
           subtitle: Padding(
             padding: const EdgeInsets.only(top: 4.0),
-            child: Text(message.text, style: TextStyle(color: Colors.black87, fontSize: 16),),
+            child: Html(data: Markdown.markdownToHtml(message.text),),
           ),
         ),
         Divider(
