@@ -1,6 +1,7 @@
 import 'package:Fluttery/screen/home/news/video_screen.dart';
 import 'package:Fluttery/screen/home/qa/qa_screen.dart';
 import 'package:Fluttery/screen/home/talk/talk_screen.dart';
+import 'package:Fluttery/screen/home/update/reddit_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,6 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
     TalkScreen(),
     VideoScreen(),
     QAScreen(),
+    RedditScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -27,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: _screens[_currentScreenIndex],
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.chat),
@@ -39,6 +42,10 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.question_answer),
             title: Text('Q&A'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.new_releases),
+            title: Text('News'),
           ),
         ],
         currentIndex: _currentScreenIndex,

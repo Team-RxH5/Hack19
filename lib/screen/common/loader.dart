@@ -8,18 +8,21 @@ class Loader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        _loadItem(),
-        Opacity(
-          opacity: 0.75,
-          child: _loadItem(),
-        ),
-        Opacity(
-          opacity: 0.5,
-          child: _loadItem(),
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: Column(
+        children: <Widget>[
+          _loadItem(),
+          Opacity(
+            opacity: 0.75,
+            child: _loadItem(),
+          ),
+          Opacity(
+            opacity: 0.5,
+            child: _loadItem(),
+          ),
+        ],
+      ),
     );
   }
 

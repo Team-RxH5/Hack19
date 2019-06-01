@@ -1,5 +1,5 @@
+import 'package:Fluttery/data/model/reddit_news.dart';
 import 'package:dio/dio.dart';
-import 'package:Fluttery/data/model/gitter_message.dart';
 import 'package:Fluttery/util/config.dart';
 
 class RedditAPI {
@@ -7,10 +7,10 @@ class RedditAPI {
 
   static const String NEWS_ENDPOINT = REDDIT_BASE_URL;
 
-  Future<List<GitterMessage>> getMessages() {
+  Future<List<RedditNews>> getMessages() {
     return _dio.get(NEWS_ENDPOINT).then((Response res) {
-      return (res.data as List).map((item) {
-        return GitterMessage.fromJson(item);
+      return (res.data["data"]["children"] as List).map((item) {
+        return RedditNews.fromJson(item);
       }).toList();
     }).catchError((err) {
       print(err.toString());
@@ -18,10 +18,10 @@ class RedditAPI {
   }
 
   // Singleton
-  static final RedditAPI _gitterApi = RedditAPI._internal();
+  static final RedditAPI _reddit_api = RedditAPI._internal();
 
   factory RedditAPI() {
-    return _gitterApi;
+    return _reddit_api;
   }
 
   RedditAPI._internal() : _dio = Dio();
