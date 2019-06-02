@@ -10,8 +10,7 @@ class GitterUser {
     this.id = json["id"];
     this.username = json["username"];
     this.displayName = json["displayName"];
-    this.url = json["url"];
-    this.avatarUrl = json["avatorUrlMedium"];
+    this.avatarUrl = json["avatarUrl"];
     this.avatorUrlMedium = json["avatorUrlMedium"];
   }
 }

@@ -1,11 +1,14 @@
 import 'package:Fluttery/data/gitter_repository.dart';
 import 'package:Fluttery/data/model/gitter_message.dart';
+import 'package:Fluttery/data/model/gitter_user.dart';
 import 'package:Fluttery/data/remote/gitter_api.dart';
 import 'package:Fluttery/screen/common/loader.dart';
 import 'package:Fluttery/screen/home/talk/gitter_auth_screen.dart';
 import 'package:Fluttery/screen/home/talk/talk_item.dart';
+import 'package:Fluttery/state/gitter_auth_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:provider/provider.dart';
 
 class TalkScreen extends StatefulWidget {
   @override
@@ -17,11 +20,6 @@ class TalkScreenState extends State<TalkScreen> {
   final TextEditingController _textEditingController =
       new TextEditingController();
   bool _isComposing = false;
-
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +60,9 @@ class TalkScreenState extends State<TalkScreen> {
             left: 0,
             right: 0,
             bottom: 0,
-            child: _buildJoin(context),
+            child: Provider.of<GitterAuthState>(context).user == null
+                ? _buildJoin(context)
+                : _buildTextComposer(),
           ),
         ],
       ),
@@ -90,15 +90,30 @@ class TalkScreenState extends State<TalkScreen> {
   }
 
   Widget _buildTextComposer() {
+    GitterUser user = Provider.of<GitterAuthState>(context).user;
+    print(user.displayName);
     return IconTheme(
         data: new IconThemeData(color: Theme.of(context).accentColor),
         child: Card(
+          margin: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
           child: new Container(
-            margin: const EdgeInsets.only(left: 16.0),
+            margin: const EdgeInsets.only(left: 6.0),
             child: Row(
               children: <Widget>[
+                CircleAvatar(
+                  child: ClipOval(
+                    child: user.avatarUrl != null
+                        ? Image(
+                            image: NetworkImage(user.avatarUrl),
+                          )
+                        : Text(user.displayName[0].toUpperCase()),
+                  ),
+                ),
+                SizedBox(
+                  width: 16,
+                ),
                 Flexible(
                   child: TextField(
                     controller: _textEditingController,

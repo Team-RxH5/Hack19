@@ -8,21 +8,28 @@ class GitterAuthState extends ChangeNotifier {
 
   GitterUser user;
 
-  void onClientAuthorized(String code) {
-    _repo.setClientCode(code);
+  GitterAuthState() {
     authenticate();
   }
 
-  void authenticate() {
-    final String code = _repo.getClientCode();
-    if (code != null) {
-      _getAuthorizationCode(code);
-    } else {
-      print(TAG + "Code not available");
-    }
+  void onClientAuthorized(String code) {
+    _repo.exchangeToken(code).then((token) {
+      _repo.setToken(token.data["access_token"]).then((_) {
+        authenticate();
+      });
+    });
   }
 
-  void _getAuthorizationCode(String code) {
-    print(code);
+  void authenticate() {
+    _repo.initToken().then((_) {
+      _repo.getCurrentUser().then((user) {
+        this.user = user;
+        notifyListeners();
+      }).catchError((err) {
+        print(TAG + "GET CURRENT USER " + err.toString());
+      });
+    }).catchError((err) {
+      print(TAG + "INIT TOKEN " + err.toString());
+    });
   }
 }
