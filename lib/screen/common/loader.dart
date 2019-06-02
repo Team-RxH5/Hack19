@@ -9,7 +9,7 @@ class Loader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
       child: Column(
         children: <Widget>[
           _loadItem(),
