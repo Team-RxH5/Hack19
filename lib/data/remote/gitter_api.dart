@@ -3,14 +3,12 @@ import 'package:Fluttery/data/model/gitter_message.dart';
 import 'package:Fluttery/util/config.dart';
 
 class GitterAPI {
-  Dio _dio;
+  final Dio _dio = Dio();
 
   static Options _options = new Options(
     headers: {
       "Authorization": "Bearer fb291e0bfda8024a2f0a5eb2f97bc615c8cdfab5"
     },
-    // connectTimeout: 5000,
-    // receiveTimeout: 3000,
   );
 
   static const String ROOM_ID = "576c4d75c2f0db084a1f99ae";
@@ -27,13 +25,4 @@ class GitterAPI {
       print(err.toString());
     });
   }
-
-  // Singleton
-  static final GitterAPI _gitterApi = GitterAPI._internal();
-
-  factory GitterAPI() {
-    return _gitterApi;
-  }
-
-  GitterAPI._internal() : _dio = Dio();
 }

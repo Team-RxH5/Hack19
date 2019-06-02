@@ -1,6 +1,8 @@
+import 'package:Fluttery/data/gitter_repository.dart';
 import 'package:Fluttery/data/model/gitter_message.dart';
 import 'package:Fluttery/data/remote/gitter_api.dart';
 import 'package:Fluttery/screen/common/loader.dart';
+import 'package:Fluttery/screen/home/talk/gitter_auth_screen.dart';
 import 'package:Fluttery/screen/home/talk/talk_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -11,10 +13,15 @@ class TalkScreen extends StatefulWidget {
 }
 
 class TalkScreenState extends State<TalkScreen> {
-  final GitterAPI _api = GitterAPI();
+  final GitterRepository _api = GitterRepository();
   final TextEditingController _textEditingController =
       new TextEditingController();
   bool _isComposing = false;
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +81,10 @@ class TalkScreenState extends State<TalkScreen> {
           "Join the conversation with Gitter",
           style: TextStyle(color: Colors.black54),
         ),
+        onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => GitterAuthScreen()),
+            ),
       ),
     );
   }
