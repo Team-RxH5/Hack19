@@ -10,7 +10,7 @@ class YoutubeAPI {
   static const String VIDEO_ENDPOINT = YOUTUBE_BASE_URL +
       "search?part=snippet&channelId=" +
       CHANNEL_ID +
-      "&maxResults=25&key=AIzaSyC74XlyMXGlwBJLLUPwHFcCAlgvB0nIXSA";
+      "&maxResults=25&key=AIzaSyCskzY9GUtpTJX5_nG1ItvYDvPV7U7KK_0";
 
   Future<List<YoutubeVideo>> getVideos() {
     return _dio.get(VIDEO_ENDPOINT).then((Response res) {
