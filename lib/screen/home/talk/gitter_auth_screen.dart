@@ -18,7 +18,7 @@ class _GitterAuthScreenState extends State<GitterAuthScreen> {
     _webviewPlugin.onUrlChanged.listen((String url) {
       if (url.contains(GITTER_REDIRECT_URL + "?code=")) {
         final String code = url.split("=")[1];
-        // TODO - Set the collected code
+        Provider.of<GitterAuthState>(context).onClientAuthorized(code);
         Navigator.pop(context);
       }
     });
