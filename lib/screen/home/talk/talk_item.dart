@@ -12,9 +12,18 @@ class TalkItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
+        Divider(
+          height: 1,
+        ),
         ListTile(
           leading: CircleAvatar(
-          child: Text(message.user.displayName[0]),
+            child: ClipOval(
+              child: message.user.avatarUrl != null
+                  ? Image(
+                      image: NetworkImage(message.user.avatarUrl),
+                    )
+                  : Text(message.user.displayName[0].toUpperCase()),
+            ),
           ),
           title: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -37,9 +46,6 @@ class TalkItem extends StatelessWidget {
             ),
           ),
         ),
-        Divider(
-          height: 1,
-        )
       ],
     );
   }
